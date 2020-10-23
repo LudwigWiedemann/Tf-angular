@@ -1,0 +1,22 @@
+<p>produkte works!</p>
+<app-product-item *ngFor="let product of products"
+[product]="product"></app-product-item>
+<button
+(click)="onAddItem('name','description')">add Item</button>
+<div class="col-sm-5 form-group">
+  <label for="name">Name</label>
+  <input type="text"
+         id="name"
+         class="form-control"
+         #nameInput
+  >
+</div>
+<div class="col-sm-5 form-group">
+  <label for="name">description</label>
+  <input type="text"
+         id="description"
+         class="form-control"
+         #descriptionInput
+  >
+</div>
+
