@@ -1,7 +1,7 @@
 import {Product} from "./product.model";
 
 export class Bestellung{
-  constructor(private products:Product[]){
+  constructor(public name: string, public products:Product[]){
 
   }
 }

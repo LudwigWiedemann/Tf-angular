@@ -1,0 +1,9 @@
+﻿<div class="col">
+<!--<app-product-item *ngFor="let product of products"></app-product-item>-->
+</div>
+<p
+(click)="showOrderDetails()">{{bestellung.name}}
+  <app-bestellungs-details
+    [bestellung]="bestellung"
+  *ngIf="showDetails"></app-bestellungs-details>
+

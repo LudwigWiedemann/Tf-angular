@@ -6,7 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { BestellungenComponent } from './bestellungen/bestellungen.component';
 import { ProdukteComponent } from './produkte/produkte.component';
 import { ProductItemComponent } from './produkte/product-item/product-item.component';
-import { BestellungComponent } from './bestellung/bestellung.component';
+import { BestellungComponent } from './bestellungen/bestellung/bestellung.component';
+import { BestellungsDetailsComponent } from './bestellungen/bestellung/bestellungs-details/bestellungs-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BestellungComponent } from './bestellung/bestellung.component';
     BestellungenComponent,
     ProdukteComponent,
     ProductItemComponent,
-    BestellungComponent
+    BestellungComponent,
+    BestellungsDetailsComponent
   ],
   imports: [
     BrowserModule

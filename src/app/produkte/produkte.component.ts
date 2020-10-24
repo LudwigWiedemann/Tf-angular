@@ -9,15 +9,20 @@ import {Product} from "../shared/product.model";
 export class ProdukteComponent implements OnInit {
   @ViewChild('nameInput') nameInputRef : ElementRef;
   @ViewChild('descriptionInput') descriptionInputRef : ElementRef;
+
   products:Product[] = [
+    new Product('das ist ein Test Produkt', 'beschreibeung'),
   ];
   constructor() { }
-  producItems
+
   ngOnInit(): void {
   }
-  onAddItem(name:string, description:string){
+  onAddItem(){
     const newProduct = new Product(this.nameInputRef.nativeElement.value,this.descriptionInputRef.nativeElement.value);
     this.products.push(newProduct);
+  }
+  onAddOrder(){
+
   }
 
 }
