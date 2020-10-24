@@ -16,7 +16,7 @@ export class BestellungComponent implements OnInit {
   }
 
   showOrderDetails(){
-  this.showDetails=true;
+  this.showDetails = !this.showDetails;
   }
 }
 

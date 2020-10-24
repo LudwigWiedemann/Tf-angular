@@ -1,7 +1,7 @@
 <app-product-item *ngFor="let product of products"
 [product]="product"></app-product-item>
-<button
-(click)="onAddItem()">add Item</button>
+
+
 
 <div class="col-sm-5 form-group">
   <label for="name">Name</label>
@@ -10,6 +10,8 @@
          class="form-control"
          #nameInput
   >
+  <br>
+  <br>
 </div>
 <div class="col-sm-5 form-group">
   <label for="name">description</label>
@@ -19,4 +21,9 @@
          #descriptionInput
   >
 </div>
+<br>
+<br>
+<button
+  (click)="onAddItem()">add Item</button>
+
 

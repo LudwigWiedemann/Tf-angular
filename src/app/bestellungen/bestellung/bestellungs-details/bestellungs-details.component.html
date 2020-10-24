@@ -1,2 +1,6 @@
-<p>{{bestellung.name}}</p>
-<p>{{bestellung.products}}</p>
+<hr>
+<h4>{{bestellung.name}}</h4>
+<app-product-item *ngFor=" let product of products"
+[product]="product">
+  </app-product-item>
+<hr>
