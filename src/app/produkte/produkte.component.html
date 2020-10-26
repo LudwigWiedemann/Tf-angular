@@ -1,29 +1,30 @@
-<app-product-item *ngFor="let product of products"
-[product]="product"></app-product-item>
-
-
-
-<div class="col-sm-5 form-group">
-  <label for="name">Name</label>
-  <input type="text"
-         id="name"
-         class="form-control"
-         #nameInput
-  >
+<div
+  align="center"
+  valign="top">
+    <label for="name">Name</label>
+    <input type="text"
+           id="name"
+           class="form-control"
+           #nameInput
+    >
   <br>
   <br>
-</div>
-<div class="col-sm-5 form-group">
   <label for="name">description</label>
   <input type="text"
          id="description"
          class="form-control"
          #descriptionInput
   >
+  <br>
+  <br>
+  <button
+    (click)="onAddItem()">add Item
+  </button>
+
+  <app-product-item
+    *ngFor="let product of products"
+    [product]="product"></app-product-item>
 </div>
-<br>
-<br>
-<button
-  (click)="onAddItem()">add Item</button>
+
 
 

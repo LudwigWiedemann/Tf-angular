@@ -1,5 +1,11 @@
+<div align="center">
+  <button
+    (click)="onAddOrder()">add Order
+  </button>
 
-<app-bestellung *ngFor="let bestellung of bestellungen"
-[bestellung]="bestellung"></app-bestellung>
-
+  <app-bestellung
+    *ngFor="let bestellung of bestellungen"
+    [bestellung]="bestellung">
+  </app-bestellung>
+</div>
 

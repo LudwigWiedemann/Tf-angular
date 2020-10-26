@@ -24,6 +24,9 @@ export class BestellungenComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onAddOrder(){
+
+  }
 
 
 
