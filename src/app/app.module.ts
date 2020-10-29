@@ -17,7 +17,7 @@ import { BestellungsDetailsComponent } from './bestellungen/bestellung/bestellun
     ProdukteComponent,
     ProductItemComponent,
     BestellungComponent,
-    BestellungsDetailsComponent
+    BestellungsDetailsComponent,
   ],
   imports: [
     BrowserModule

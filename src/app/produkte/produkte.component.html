@@ -1,29 +1,42 @@
 <div
   align="center"
   valign="top">
+  <button class="button"
+          *ngIf="!edit"
+          (click)="onEdit()">edit
+  </button>
+  <button class="button"
+          *ngIf="edit"
+          (click)="onReturn()">return
+  </button>
+  <div class="col-xs-12" *ngIf="edit">
     <label for="name">Name</label>
     <input type="text"
            id="name"
            class="form-control"
            #nameInput
     >
+    <br>
+    <br>
+    <label for="name">description</label>
+    <input type="text"
+           id="description"
+           class="form-control"
+           #descriptionInput
+    >
+    <br>
+    <button class="button"
+            (click)="onAddItem()">addItem
+    </button>
+  </div>
   <br>
   <br>
-  <label for="name">description</label>
-  <input type="text"
-         id="description"
-         class="form-control"
-         #descriptionInput
-  >
-  <br>
-  <br>
-  <button
-    (click)="onAddItem()">add Item
-  </button>
-
   <app-product-item
     *ngFor="let product of products"
-    [product]="product"></app-product-item>
+    [product]="product"
+    [edit]="edit"
+    (deleteProductItem)="deleteItem($event)">
+  </app-product-item>
 </div>
 
 

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TF-angular"
+    }
+  },
+  "defaultProject": "TF-angular",
+  "cli": {
+    "analytics": false
+  }
 }

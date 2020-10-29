@@ -1,4 +1,9 @@
 <p>{{product.name}}</p>
 <p>{{product.description}}</p>
+<button class="button" *ngIf="edit"
+        (click)="onDeleteItem(product)"
+>delete Item
+</button>
 <br>
 <br>
+

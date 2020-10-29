@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Product} from "../../shared/product.model";
 
 @Component({
@@ -7,10 +7,17 @@ import {Product} from "../../shared/product.model";
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-@Input() product:Product;
+  @Output() deleteProductItem = new EventEmitter<Product>();
+  @Input() product: Product;
+  @Input() edit: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onDeleteItem(deletedProduct){
+    this.deleteProductItem.emit(deletedProduct);
   }
 
 }
