@@ -8,7 +8,7 @@ import {Product} from "../../shared/product.model";
 })
 export class ProductItemComponent implements OnInit {
   @Output() deleteProductItem = new EventEmitter<Product>();
-  @Input() product: Product;
+  @Input() produktItem: Product;
   @Input() edit: boolean;
 
   constructor() { }
