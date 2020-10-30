@@ -11,19 +11,16 @@ import {Product} from "../shared/product.model";
   styleUrls: ['./bestellungen.component.css']
 })
 export class BestellungenComponent implements OnInit {
-  products:Product[] = [
-    new Product('name','ad'),
-    new Product('name','ad'),
-    new Product('name','ad')
-  ];
-  bestellungen:Bestellung[]=[
-    new Bestellung('meineBestellung', this.products),
-    new Bestellung('deineBestellung', this.products),
+
+  bestellungenGesamt:Bestellung[]=[
+    new Bestellung('meineBestellung', [new Product('hallo','description'),new Product('name','ad')]),
+    new Bestellung('deineBestellung', [new Product('hallo','description'),new Product('name','ad')]),
   ];
   constructor() { }
 
   ngOnInit(): void {
   }
+
   onAddOrder(){
 
   }

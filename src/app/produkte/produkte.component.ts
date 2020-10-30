@@ -10,7 +10,8 @@ export class ProdukteComponent implements OnInit {
   @ViewChild('nameInput') nameInputRef : ElementRef;
   @ViewChild('descriptionInput') descriptionInputRef : ElementRef;
 
-  edit = false;
+  editProducts = false;
+
   produktliste:Product[] = [
     new Product('das ist ein Test Produkt', 'beschreibeung'),
   ];
@@ -20,11 +21,11 @@ export class ProdukteComponent implements OnInit {
   }
 
   onEdit(){
-    this.edit = true;
+    this.editProducts = true;
   }
 
   onReturn(){
-    this.edit = false;
+    this.editProducts = false;
   }
 
   onAddItem(){
@@ -34,7 +35,8 @@ export class ProdukteComponent implements OnInit {
       this.clearInput();
     }
   }
-  private clearInput() {
+
+  clearInput() {
     this.nameInputRef.nativeElement.value = '';
     this.descriptionInputRef.nativeElement.value = '';
   }

@@ -8,7 +8,7 @@ import {Bestellung} from "../../shared/bestellung.model";
   styleUrls: ['./bestellung.component.css']
 })
 export class BestellungComponent implements OnInit {
-@Input() bestellung: Bestellung
+@Input() bestellung: Bestellung;
   showDetails=false;
   constructor() { }
 

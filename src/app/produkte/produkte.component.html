@@ -2,14 +2,14 @@
   align="center"
   valign="top">
   <button class="button"
-          *ngIf="!edit"
-          (click)="onEdit()">edit
+          *ngIf="!editProducts"
+          (click)="onEdit()">Edit Items
   </button>
   <button class="button"
-          *ngIf="edit"
-          (click)="onReturn()">return
+          *ngIf="editProducts"
+          (click)="onReturn()">Return
   </button>
-  <div class="col-xs-12" *ngIf="edit">
+  <div class="col-xs-12" *ngIf="editProducts">
     <label for="name">Name</label>
     <input type="text"
            id="name"
@@ -26,7 +26,7 @@
     >
     <br>
     <button class="button"
-            (click)="onAddItem()">addItem
+            (click)="onAddItem()">Add Item
     </button>
   </div>
   <br>
@@ -34,7 +34,7 @@
   <app-product-item
     *ngFor="let einzelnesProdukt of produktliste"
     [produktItem]="einzelnesProdukt"
-    [edit]="edit"
+    [editProducts]="editProducts"
     (deleteProductItem)="deleteItem($event)">
   </app-product-item>
 </div>
