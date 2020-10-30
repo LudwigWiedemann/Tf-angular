@@ -1,8 +1,11 @@
 ﻿<div class="col">
   <!--<app-product-item *ngFor="let product of products"></app-product-item>-->
 </div>
-<p (click)="showOrderDetails()" *ngIf="!showDetails">{{bestellung.name}}</p>
-  <app-bestellungs-details (click)="showOrderDetails()"
-    [bestellungFuerDetails]="bestellung"
-    *ngIf="showDetails"></app-bestellungs-details>
-
+<p (click)="showOrderDetails()" *ngIf="!showDetails">{{dieseBestellung.name}}</p>
+<app-bestellungs-details (click)="showOrderDetails()"
+                         [detailsDieserBestellung]="dieseBestellung"
+                         *ngIf="showDetails"></app-bestellungs-details>
+<button class="button" *ngIf="editOrder" style="margin: 20px"
+        (click)="deleteOrder()">Delete Order
+</button>
+<hr>

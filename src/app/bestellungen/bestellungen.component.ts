@@ -11,10 +11,11 @@ import {Product} from "../shared/product.model";
   styleUrls: ['./bestellungen.component.css']
 })
 export class BestellungenComponent implements OnInit {
-
+  editOrder = false;
+  pr:Product[]=[new Product('hallo','description'),new Product('name','ad')]
   bestellungenGesamt:Bestellung[]=[
-    new Bestellung('meineBestellung', [new Product('hallo','description'),new Product('name','ad')]),
-    new Bestellung('deineBestellung', [new Product('hallo','description'),new Product('name','ad')]),
+    new Bestellung('meineBestellung', this.pr),
+    new Bestellung('deineBestellung', this.pr),
   ];
   constructor() { }
 
@@ -26,6 +27,19 @@ export class BestellungenComponent implements OnInit {
   }
 
 
+  onEditOrder() {
+    this.editOrder = true;
+  }
 
+  onReturn(){
+    this.editOrder = false;
+  }
 
+  deleteAnOrder(zuLoeschendeBestellung: Bestellung) {
+    for(let i = 0; i < this.bestellungenGesamt.length; i++){
+      if(zuLoeschendeBestellung === this.bestellungenGesamt[i]){
+        this.bestellungenGesamt.splice(i,1);
+      }
+    }
+  }
 }

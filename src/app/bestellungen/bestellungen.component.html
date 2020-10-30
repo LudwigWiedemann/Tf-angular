@@ -1,11 +1,19 @@
 <div align="center">
-  <button
-    (click)="onAddOrder()">add Order
+  <button class="button" *ngIf="!editOrder" style="margin: 20px"
+    (click)="onEditOrder()">Edit Orders
+  </button>
+  <button class="button" *ngIf="editOrder" style="margin: 20px"
+          (click)="onReturn()">Return
+  </button>
+  <button class="button" *ngIf="editOrder" style="margin: 20px"
+          (click)="onAddOrder()">Add Order
   </button>
 
   <app-bestellung
     *ngFor="let einebestellung of bestellungenGesamt"
-    [bestellung]="einebestellung">
+    [dieseBestellung]="einebestellung"
+    [editOrder]="editOrder"
+    (onDeleteOrder)="deleteAnOrder($event)">
   </app-bestellung>
 </div>
 

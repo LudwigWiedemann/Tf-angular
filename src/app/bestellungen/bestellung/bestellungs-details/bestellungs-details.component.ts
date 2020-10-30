@@ -8,7 +8,7 @@ import {Product} from "../../../shared/product.model";
   styleUrls: ['./bestellungs-details.component.css']
 })
 export class BestellungsDetailsComponent implements OnInit {
-@Input() bestellungFuerDetails: Bestellung;
+@Input() detailsDieserBestellung: Bestellung;
 
   constructor() { }
 
