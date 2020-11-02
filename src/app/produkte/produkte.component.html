@@ -32,7 +32,7 @@
   <br>
   <br>
   <app-product-item
-    *ngFor="let einzelnesProdukt of produktliste"
+    *ngFor="let einzelnesProdukt of products"
     [produktItem]="einzelnesProdukt"
     [editProducts]="editProducts"
     (deleteProductItem)="deleteItem($event)">

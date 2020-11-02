@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Product} from "../shared/product.model";
+import {ProdukteService} from "./produkte.service";
 
 @Component({
   selector: 'app-produkte',
@@ -9,15 +10,14 @@ import {Product} from "../shared/product.model";
 export class ProdukteComponent implements OnInit {
   @ViewChild('nameInput') nameInputRef : ElementRef;
   @ViewChild('descriptionInput') descriptionInputRef : ElementRef;
-
+  products: Product[];
   editProducts = false;
 
-  produktliste:Product[] = [
-    new Product('das ist ein Test Produkt', 'beschreibeung'),
-  ];
-  constructor() { }
+
+  constructor(private produkteService: ProdukteService) { }
 
   ngOnInit(): void {
+    this.products = this.produkteService.getProducts();
   }
 
   onEdit(){

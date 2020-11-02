@@ -8,6 +8,7 @@ import { ProdukteComponent } from './produkte/produkte.component';
 import { ProductItemComponent } from './produkte/product-item/product-item.component';
 import { BestellungComponent } from './bestellungen/bestellung/bestellung.component';
 import { BestellungsDetailsComponent } from './bestellungen/bestellung/bestellungs-details/bestellungs-details.component';
+import { ProductItemAddOrderComponent } from './produkte/product-item-add-order/product-item-add-order.component'
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BestellungsDetailsComponent } from './bestellungen/bestellung/bestellun
     ProductItemComponent,
     BestellungComponent,
     BestellungsDetailsComponent,
+    ProductItemAddOrderComponent
   ],
   imports: [
     BrowserModule

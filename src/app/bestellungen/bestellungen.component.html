@@ -16,4 +16,7 @@
     (onDeleteOrder)="deleteAnOrder($event)">
   </app-bestellung>
 </div>
+<ng-container *ngIf="showProducts">
+<app-product-item-add-order *ngFor="let item of products"  [produktItem]="item "> </app-product-item-add-order>
+</ng-container>
 

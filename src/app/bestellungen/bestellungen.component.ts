@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bestellung } from '../shared/bestellung.model';
 import {Product} from "../shared/product.model";
+import {ProdukteService} from "../produkte/produkte.service";
 
 
 
@@ -12,17 +13,22 @@ import {Product} from "../shared/product.model";
 })
 export class BestellungenComponent implements OnInit {
   editOrder = false;
+  showProducts = false;
+  products:Product[];
   pr:Product[]=[new Product('hallo','description'),new Product('name','ad')]
   bestellungenGesamt:Bestellung[]=[
     new Bestellung('meineBestellung', this.pr),
     new Bestellung('deineBestellung', this.pr),
   ];
-  constructor() { }
+  constructor(private produkteService: ProdukteService) { }
 
   ngOnInit(): void {
+
   }
 
   onAddOrder(){
+    this.products = this.produkteService.getProducts();
+    this.showProducts = true;
 
   }
 
