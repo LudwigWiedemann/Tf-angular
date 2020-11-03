@@ -31,7 +31,7 @@ export class ProdukteComponent implements OnInit {
   onAddItem(){
     if(this.nameInputRef.nativeElement.value !== '' && this.descriptionInputRef.nativeElement.value !== ''){
       const newProduct = new Product(this.nameInputRef.nativeElement.value.trim(),this.descriptionInputRef.nativeElement.value.trim());
-      this.produktliste.push(newProduct);
+      this.produkteService.addProduct(newProduct);
       this.clearInput();
     }
   }
@@ -42,9 +42,9 @@ export class ProdukteComponent implements OnInit {
   }
 
   deleteItem(zuLoeschendesProdukt: Product){
-    for(let i = 0; i < this.produktliste.length; i++){
-        if(zuLoeschendesProdukt === this.produktliste[i]){
-          this.produktliste.splice(i,1);
+    for(let i = 0; i < this.products.length; i++){
+        if(zuLoeschendesProdukt === this.products[i]){
+          this.produkteService.removeProduct(i);
         }
     }
   }

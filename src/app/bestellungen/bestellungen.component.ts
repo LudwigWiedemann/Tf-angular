@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bestellung } from '../shared/bestellung.model';
 import {Product} from "../shared/product.model";
+import {BestellungenService} from "./bestellungen.service";
 import {ProdukteService} from "../produkte/produkte.service";
 
 
@@ -15,37 +16,42 @@ export class BestellungenComponent implements OnInit {
   editOrder = false;
   showProducts = false;
   products:Product[];
-  pr:Product[]=[new Product('hallo','description'),new Product('name','ad')]
-  bestellungenGesamt:Bestellung[]=[
-    new Bestellung('meineBestellung', this.pr),
-    new Bestellung('deineBestellung', this.pr),
-  ];
-  constructor(private produkteService: ProdukteService) { }
+  orders: Bestellung[];
+  orderToEdit: Bestellung;
+  addItems: false;
+
+
+  constructor(private bestellungenService: BestellungenService,private produkteService: ProdukteService) { }
 
   ngOnInit(): void {
-
+    this.orders = this.bestellungenService.getOrders();
   }
-
-  onAddOrder(){
-    this.products = this.produkteService.getProducts();
-    this.showProducts = true;
-
-  }
-
 
   onEditOrder() {
     this.editOrder = true;
+
   }
 
   onReturn(){
+    this.addItems = false;
+    console.log('add Items = false');
+    console.log(this.addItems);
     this.editOrder = false;
+    this.showProducts = false;
+
   }
 
   deleteAnOrder(zuLoeschendeBestellung: Bestellung) {
-    for(let i = 0; i < this.bestellungenGesamt.length; i++){
-      if(zuLoeschendeBestellung === this.bestellungenGesamt[i]){
-        this.bestellungenGesamt.splice(i,1);
+    for(let i = 0; i < this.orders.length; i++){
+      if(zuLoeschendeBestellung === this.orders[i]){
+        this.bestellungenService.deleteOrder(i);
       }
     }
+  }
+  showAllProducts(bestellung: Bestellung){
+    this.orderToEdit = bestellung;
+    this.products = this.produkteService.getProducts();
+    this.showProducts = true;
+
   }
 }

@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Product} from "../../shared/product.model";
-import {ProdukteService} from "../produkte.service";
+import {BestellungenService} from "../../bestellungen/bestellungen.service";
+import {Bestellung} from "../../shared/bestellung.model";
 
 @Component({
   selector: 'app-product-item-add-order',
@@ -8,16 +9,18 @@ import {ProdukteService} from "../produkte.service";
   styleUrls: ['./product-item-add-order.component.css']
 })
 export class ProductItemAddOrderComponent implements OnInit {
-  @Output() deleteProductItem = new EventEmitter<Product>();
   @Input() produktItem: Product;
+  @Input() orderToEdit: Bestellung;
   show:string;
-  constructor() {
+  constructor(private bestellungenService: BestellungenService) {
   }
 
   ngOnInit(): void {
 
   }
-  onDeleteItem(deletedProduct){
-    this.deleteProductItem.emit(deletedProduct);
+
+  addProductToOrder(){
+    this.bestellungenService.addItemToOrder(this.produktItem, this.orderToEdit);
   }
+
 }

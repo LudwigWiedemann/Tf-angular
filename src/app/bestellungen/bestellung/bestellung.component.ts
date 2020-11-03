@@ -1,6 +1,7 @@
 ﻿import {Product} from "../../shared/product.model";
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Bestellung} from "../../shared/bestellung.model";
+import {ProdukteService} from "../../produkte/produkte.service";
 
 
 
@@ -11,10 +12,15 @@ import {Bestellung} from "../../shared/bestellung.model";
   styleUrls: ['./bestellung.component.css']
 })
 export class BestellungComponent implements OnInit {
+  products: Product[];
+  @Output() onDeleteOrder = new EventEmitter<Bestellung>();
+  @Output() onShowProducts = new EventEmitter<Bestellung>();
+  @Output() dontShowProducts = new EventEmitter<boolean>();
   @Input() dieseBestellung: Bestellung;
   @Input() editOrder: boolean;
-  @Output() onDeleteOrder = new EventEmitter<Bestellung>();
   showDetails = false;
+  @Input() addItems = false;
+
 
   constructor() {
   }
@@ -28,6 +34,17 @@ export class BestellungComponent implements OnInit {
 
   deleteOrder() {
     this.onDeleteOrder.emit(this.dieseBestellung)
+  }
+
+  onAddProducts(dieseBestellung: Bestellung){
+    this.addItems = true;
+    this.onShowProducts.emit(dieseBestellung);
+
+  }
+
+  accept() {
+    this.addItems = false;
+    this.dontShowProducts.emit(false);
   }
 }
 

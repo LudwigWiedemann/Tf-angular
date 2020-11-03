@@ -6,17 +6,24 @@
           (click)="onReturn()">Return
   </button>
   <button class="button" *ngIf="editOrder" style="margin: 20px"
-          (click)="onAddOrder()">Add Order
+          >Add Order
   </button>
 
+
   <app-bestellung
-    *ngFor="let einebestellung of bestellungenGesamt"
+    *ngFor="let einebestellung of orders"
     [dieseBestellung]="einebestellung"
     [editOrder]="editOrder"
-    (onDeleteOrder)="deleteAnOrder($event)">
+    (onDeleteOrder)="deleteAnOrder($event)"
+    (onShowProducts)="showAllProducts($event)"
+    (dontShowProducts)="this.showProducts = $event"
+    [addItems]="this.addItems"  >
   </app-bestellung>
 </div>
-<ng-container *ngIf="showProducts">
-<app-product-item-add-order *ngFor="let item of products"  [produktItem]="item "> </app-product-item-add-order>
-</ng-container>
+
+  <ng-container *ngIf="showProducts">
+    <div fxLayout="row" fxLayoutAlign="space-evenly stretch" >
+  <app-product-item-add-order *ngFor="let item of products"  [orderToEdit]="orderToEdit" [produktItem]="item "> </app-product-item-add-order>
+    </div>
+  </ng-container>
 

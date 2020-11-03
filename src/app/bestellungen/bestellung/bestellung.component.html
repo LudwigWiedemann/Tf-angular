@@ -2,10 +2,17 @@
   <!--<app-product-item *ngFor="let product of products"></app-product-item>-->
 </div>
 <p (click)="showOrderDetails()" *ngIf="!showDetails">{{dieseBestellung.name}}</p>
-<app-bestellungs-details (click)="showOrderDetails()"
-                         [detailsDieserBestellung]="dieseBestellung"
-                         *ngIf="showDetails"></app-bestellungs-details>
+<app-bestellungs-details (dontShowdets)="showOrderDetails()"
+                         [dieseBestellung]="dieseBestellung"
+                         *ngIf="showDetails"
+ [editOrder]="editOrder"></app-bestellungs-details>
 <button class="button" *ngIf="editOrder" style="margin: 20px"
         (click)="deleteOrder()">Delete Order
+</button>
+<button class="button" *ngIf="editOrder && !addItems" style="margin: 20px"
+        (click)="onAddProducts(dieseBestellung)">Add Items
+</button>
+<button class="button" *ngIf="addItems && editOrder" style="margin: 20px; min-width: 78px"
+        (click)="accept()">Accept
 </button>
 <hr>

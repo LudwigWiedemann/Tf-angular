@@ -9,21 +9,18 @@ export class ProdukteService {
     new Product('das ist ein Test Produkt', 'beschreibeung'),
     new Product('das ist ein Test Produkt', 'beschreibeung'),
     new Product('das ist ein Test Produkt', 'beschreibeung'),
-    new Product('das ist ein Test Produkt', 'beschreibeung'),
-    new Product('das ist ein Test Produkt', 'beschreibeung'),
-    new Product('das ist ein Test Produkt', 'beschreibeung'),
-    new Product('das ist ein Test Produkt', 'beschreibeung'),
+
   ];
   constructor() { }
 
   getProducts(): Product[]{
     return this.produktliste;
   }
-  addProduct(){
-
+  addProduct(newProduct: Product){
+    this.produktliste.push(newProduct);
   }
 
-  removeProduct(){
-
+  removeProduct(i:number){
+    this.produktliste.splice(i,1);
   }
 }

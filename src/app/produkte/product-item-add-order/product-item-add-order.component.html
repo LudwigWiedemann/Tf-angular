@@ -1,11 +1,7 @@
-<a (click)="show='schow'">
+<a (click)="addProductToOrder()">
 <p>{{produktItem.name}}</p>
 <p>{{produktItem.description}}</p>
 </a>
-<button class="button" *ngIf="editProducts"
-        (click)="onDeleteItem(produktItem)"
->delete Item
-</button>
 <p>{{show}}</p>
 <br>
 <br>

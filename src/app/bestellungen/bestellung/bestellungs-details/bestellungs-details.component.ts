@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Bestellung} from "../../../shared/bestellung.model";
-import {Product} from "../../../shared/product.model";
+
+
 
 @Component({
   selector: 'app-bestellungs-details',
@@ -8,11 +9,17 @@ import {Product} from "../../../shared/product.model";
   styleUrls: ['./bestellungs-details.component.css']
 })
 export class BestellungsDetailsComponent implements OnInit {
-@Input() detailsDieserBestellung: Bestellung;
+  @Output() dontShowdets = new EventEmitter<void>();
+  @Input() dieseBestellung: Bestellung;
+  @Input() editOrder: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  dontShowDetails(){
+    this.dontShowdets.emit();
   }
 
 }

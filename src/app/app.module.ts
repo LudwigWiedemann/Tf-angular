@@ -8,7 +8,8 @@ import { ProdukteComponent } from './produkte/produkte.component';
 import { ProductItemComponent } from './produkte/product-item/product-item.component';
 import { BestellungComponent } from './bestellungen/bestellung/bestellung.component';
 import { BestellungsDetailsComponent } from './bestellungen/bestellung/bestellungs-details/bestellungs-details.component';
-import { ProductItemAddOrderComponent } from './produkte/product-item-add-order/product-item-add-order.component'
+import { ProductItemAddOrderComponent } from './produkte/product-item-add-order/product-item-add-order.component';
+import { ProductItemOrderDetailsComponent } from './produkte/product-item-order-details/product-item-order-details.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductItemAddOrderComponent } from './produkte/product-item-add-order/
     ProductItemComponent,
     BestellungComponent,
     BestellungsDetailsComponent,
-    ProductItemAddOrderComponent
+    ProductItemAddOrderComponent,
+    ProductItemOrderDetailsComponent
   ],
   imports: [
     BrowserModule
