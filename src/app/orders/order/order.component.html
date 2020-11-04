@@ -6,7 +6,7 @@
                          [order]="order"
                          *ngIf="showDetails"
  [editOrder]="editOrder"></app-order-details>
-<button class="button" *ngIf="editOrder" style="margin: 20px"
+<button class="button" [disabled]="addItems" *ngIf="editOrder" style="margin: 20px"
         (click)="deleteOrder()">Delete Order
 </button>
 <button class="button" *ngIf="editOrder && !addItems" style="margin: 20px"

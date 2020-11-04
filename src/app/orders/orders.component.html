@@ -2,11 +2,11 @@
   <button class="button" *ngIf="!editOrder" style="margin: 20px"
     (click)="onEditOrder()">Edit Orders
   </button>
-  <button class="button" *ngIf="editOrder" style="margin: 20px"
+  <button class="button" [disabled]="showProducts" *ngIf="editOrder" style="margin: 20px"
           (click)="onReturn()">Return
   </button>
-  <button class="button" *ngIf="editOrder" style="margin: 20px"
-          >Add Order
+  <button class="button" [disabled]="showProducts" *ngIf="editOrder" style="margin: 20px"
+  (click)="onAddOrder()">Add Order
   </button>
 
 
@@ -21,9 +21,25 @@
   </app-order>
 </div>
 
-  <ng-container *ngIf="showProducts">
+<ng-container *ngIf="addOrder">
+  <label for="name">Name: </label>
+  <input
+    type="text"
+    id="name"
+    class="form-control"
+    #nameInput
+    [(ngModel)]="nameOfNewOrder"
+  >
+  <button class="button" [disabled]="nameOfNewOrder === ''" *ngIf="editOrder" style="margin: 20px"
+          (click)="onAcceptName()">Accept
+  </button>
+</ng-container>
+<ng-container *ngIf="showProducts">
     <div fxLayout="row" fxLayoutAlign="space-evenly stretch" >
-  <app-product-item-add-order *ngFor="let item of products"  [orderToEdit]="orderToEdit" [productItem]="item "> </app-product-item-add-order>
+    <app-product-item-add-order *ngFor="let item of products"  [orderToEdit]="orderToEdit" [productItem]="item "> </app-product-item-add-order>
     </div>
-  </ng-container>
+</ng-container>
+
+
+
 

@@ -21,11 +21,7 @@ export class OrdersService {
   }
 
   addItemToOrder(itemToAdd: Product, orderToAddTo: Order){
-    for(let i = 0; i< this.orders.length; i++){
-      if(orderToAddTo.name === this.orders[i].name){
-        this.orders[i].products.push(itemToAdd);
-      }
-    }
+    orderToAddTo.products.push(itemToAdd);
   }
 
   deleteOrder(i: number){
@@ -33,14 +29,16 @@ export class OrdersService {
   }
 
   removeItem(produktItem: Product, orderToEdit: Order) {
-    for(let i = 0; i< this.orders.length; i++){
-      if(orderToEdit.name === this.orders[i].name){
-        for(let x = 0; x < this.orders[i].products.length; x++) {
-          if (produktItem === this.orders[i].products[x]) {
-            this.orders[i].products.splice(x,1);
-          }
-        }
+    for(let x = 0; x < orderToEdit.products.length; x++) {
+      if (produktItem === orderToEdit.products[x]) {
+            orderToEdit.products.splice(x,1);
       }
     }
+  }
+
+
+
+  addOrder(newOrder){
+    this.orders.push(newOrder);
   }
 }
