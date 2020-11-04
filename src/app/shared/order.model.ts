@@ -1,6 +1,6 @@
 import {Product} from "./product.model";
 
-export class Bestellung{
+export class Order{
   constructor(public name: string, public products:Product[]){
 
   }

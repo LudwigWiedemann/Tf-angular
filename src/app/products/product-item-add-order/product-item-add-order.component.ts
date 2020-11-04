@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Product} from "../../shared/product.model";
-import {BestellungenService} from "../../bestellungen/bestellungen.service";
-import {Bestellung} from "../../shared/bestellung.model";
+import {OrdersService} from "../../orders/orders.service";
+import {Order} from "../../shared/order.model";
 
 @Component({
   selector: 'app-product-item-add-order',
@@ -9,10 +9,10 @@ import {Bestellung} from "../../shared/bestellung.model";
   styleUrls: ['./product-item-add-order.component.css']
 })
 export class ProductItemAddOrderComponent implements OnInit {
-  @Input() produktItem: Product;
-  @Input() orderToEdit: Bestellung;
+  @Input() productItem: Product;
+  @Input() orderToEdit: Order;
   show:string;
-  constructor(private bestellungenService: BestellungenService) {
+  constructor(private ordersService: OrdersService) {
   }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class ProductItemAddOrderComponent implements OnInit {
   }
 
   addProductToOrder(){
-    this.bestellungenService.addItemToOrder(this.produktItem, this.orderToEdit);
+    this.ordersService.addItemToOrder(this.productItem, this.orderToEdit);
   }
 
 }

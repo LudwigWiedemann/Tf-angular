@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   loadedFeature = ' ';
-  onNavigate(seite: string){
-    this.loadedFeature = seite;
+  onNavigate(page: string){
+    this.loadedFeature = page;
   }
 }

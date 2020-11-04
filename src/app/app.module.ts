@@ -3,23 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { BestellungenComponent } from './bestellungen/bestellungen.component';
-import { ProdukteComponent } from './produkte/produkte.component';
-import { ProductItemComponent } from './produkte/product-item/product-item.component';
-import { BestellungComponent } from './bestellungen/bestellung/bestellung.component';
-import { BestellungsDetailsComponent } from './bestellungen/bestellung/bestellungs-details/bestellungs-details.component';
-import { ProductItemAddOrderComponent } from './produkte/product-item-add-order/product-item-add-order.component';
-import { ProductItemOrderDetailsComponent } from './produkte/product-item-order-details/product-item-order-details.component'
+import { OrdersComponent } from './orders/orders.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductItemComponent } from './products/product-item/product-item.component';
+import { OrderComponent } from './orders/order/order.component';
+import { OrderDetailsComponent } from './orders/order/order-details/order-details.component';
+import { ProductItemAddOrderComponent } from './products/product-item-add-order/product-item-add-order.component';
+import { ProductItemOrderDetailsComponent } from './products/product-item-order-details/product-item-order-details.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BestellungenComponent,
-    ProdukteComponent,
+    OrdersComponent,
+    ProductsComponent,
     ProductItemComponent,
-    BestellungComponent,
-    BestellungsDetailsComponent,
+    OrderComponent,
+    OrderDetailsComponent,
     ProductItemAddOrderComponent,
     ProductItemOrderDetailsComponent
   ],

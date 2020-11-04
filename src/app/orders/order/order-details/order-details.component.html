@@ -1,0 +1,7 @@
+
+<h3 (click)="dontShowDetails()">{{order.name}}</h3>
+<app-product-item-order-details *ngFor=" let product of order.products"
+[productItem]="product"
+[editOrder]="editOrder"
+[orderToEdit]="order" >
+  </app-product-item-order-details>

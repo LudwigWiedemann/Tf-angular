@@ -1,4 +1,4 @@
-<app-header (featureSelected)="onNavigate($event) "></app-header>
-<app-produkte *ngIf="loadedFeature==='produkte'"></app-produkte>
-<app-bestellungen *ngIf="loadedFeature!=='produkte'"></app-bestellungen>
+<app-header (onFeatureSelected)="onNavigate($event) "></app-header>
+<app-products *ngIf="loadedFeature==='products'"></app-products>
+<app-orders *ngIf="loadedFeature!=='products'"></app-orders>
 

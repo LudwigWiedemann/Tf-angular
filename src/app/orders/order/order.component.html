@@ -1,18 +1,19 @@
 ﻿<div class="col">
   <!--<app-product-item *ngFor="let product of products"></app-product-item>-->
 </div>
-<p (click)="showOrderDetails()" *ngIf="!showDetails">{{dieseBestellung.name}}</p>
-<app-bestellungs-details (dontShowdets)="showOrderDetails()"
-                         [dieseBestellung]="dieseBestellung"
+<p (click)="showOrderDetails()" *ngIf="!showDetails">{{order.name}}</p>
+<app-order-details (dontShowdets)="showOrderDetails()"
+                         [order]="order"
                          *ngIf="showDetails"
- [editOrder]="editOrder"></app-bestellungs-details>
+ [editOrder]="editOrder"></app-order-details>
 <button class="button" *ngIf="editOrder" style="margin: 20px"
         (click)="deleteOrder()">Delete Order
 </button>
 <button class="button" *ngIf="editOrder && !addItems" style="margin: 20px"
-        (click)="onAddProducts(dieseBestellung)">Add Items
+        (click)="onAddProducts(order)">Add Items
 </button>
 <button class="button" *ngIf="addItems && editOrder" style="margin: 20px; min-width: 78px"
         (click)="accept()">Accept
 </button>
 <hr>
+

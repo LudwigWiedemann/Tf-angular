@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from "../../shared/product.model";
-import {Bestellung} from "../../shared/bestellung.model";
-import {BestellungenService} from "../../bestellungen/bestellungen.service";
+import {Order} from "../../shared/order.model";
+import {OrdersService} from "../../orders/orders.service";
 
 @Component({
   selector: 'app-product-item-order-details',
@@ -10,15 +10,15 @@ import {BestellungenService} from "../../bestellungen/bestellungen.service";
 })
 export class ProductItemOrderDetailsComponent implements OnInit {
   @Output() deleteProductItem = new EventEmitter<Product>();
-  @Input() produktItem: Product;
+  @Input() productItem: Product;
   @Input() editOrder: boolean;
-  @Input() orderToEdit: Bestellung;
+  @Input() orderToEdit: Order;
 
-  constructor(private bestellungenService: BestellungenService) { }
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit(): void {
   }
   onDeleteItem(){
-    this.bestellungenService.removeItem(this.produktItem, this.orderToEdit);
+    this.ordersService.removeItem(this.productItem, this.orderToEdit);
   }
 }

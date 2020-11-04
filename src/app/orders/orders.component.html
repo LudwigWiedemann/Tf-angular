@@ -10,20 +10,20 @@
   </button>
 
 
-  <app-bestellung
-    *ngFor="let einebestellung of orders"
-    [dieseBestellung]="einebestellung"
+  <app-order
+    *ngFor="let order of orders"
+    [order]="order"
     [editOrder]="editOrder"
     (onDeleteOrder)="deleteAnOrder($event)"
     (onShowProducts)="showAllProducts($event)"
     (dontShowProducts)="this.showProducts = $event"
     [addItems]="this.addItems"  >
-  </app-bestellung>
+  </app-order>
 </div>
 
   <ng-container *ngIf="showProducts">
     <div fxLayout="row" fxLayoutAlign="space-evenly stretch" >
-  <app-product-item-add-order *ngFor="let item of products"  [orderToEdit]="orderToEdit" [produktItem]="item "> </app-product-item-add-order>
+  <app-product-item-add-order *ngFor="let item of products"  [orderToEdit]="orderToEdit" [productItem]="item "> </app-product-item-add-order>
     </div>
   </ng-container>
 

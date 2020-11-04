@@ -4,7 +4,7 @@ import {Product} from "../shared/product.model";
 @Injectable({
   providedIn: 'root'
 })
-export class ProdukteService {
+export class ProductsService {
   produktliste:Product[] = [
     new Product('das ist ein Test Produkt', 'beschreibeung'),
     new Product('das ist ein Test Produkt', 'beschreibeung'),

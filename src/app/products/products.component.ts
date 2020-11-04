@@ -1,23 +1,23 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Product} from "../shared/product.model";
-import {ProdukteService} from "./produkte.service";
+import {ProductsService} from "./products.service";
 
 @Component({
-  selector: 'app-produkte',
-  templateUrl: './produkte.component.html',
-  styleUrls: ['./produkte.component.css']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
 })
-export class ProdukteComponent implements OnInit {
+export class ProductsComponent implements OnInit {
   @ViewChild('nameInput') nameInputRef : ElementRef;
   @ViewChild('descriptionInput') descriptionInputRef : ElementRef;
   products: Product[];
   editProducts = false;
 
 
-  constructor(private produkteService: ProdukteService) { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
-    this.products = this.produkteService.getProducts();
+    this.products = this.productsService.getProducts();
   }
 
   onEdit(){
@@ -31,7 +31,7 @@ export class ProdukteComponent implements OnInit {
   onAddItem(){
     if(this.nameInputRef.nativeElement.value !== '' && this.descriptionInputRef.nativeElement.value !== ''){
       const newProduct = new Product(this.nameInputRef.nativeElement.value.trim(),this.descriptionInputRef.nativeElement.value.trim());
-      this.produkteService.addProduct(newProduct);
+      this.productsService.addProduct(newProduct);
       this.clearInput();
     }
   }
@@ -41,10 +41,10 @@ export class ProdukteComponent implements OnInit {
     this.descriptionInputRef.nativeElement.value = '';
   }
 
-  deleteItem(zuLoeschendesProdukt: Product){
+  deleteItem(deletedProduct: Product){ 
     for(let i = 0; i < this.products.length; i++){
-        if(zuLoeschendesProdukt === this.products[i]){
-          this.produkteService.removeProduct(i);
+      if(deletedProduct === this.products[i]){
+          this.productsService.removeProduct(i);
         }
     }
   }
