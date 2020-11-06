@@ -1,10 +1,10 @@
 <div class="row">
   <p>{{productItem.name}}</p>
   <p>{{productItem.description}}</p>
-  <button class="button" *ngIf="editOrder"
+  <bmw-button button="secondary" *ngIf="editOrder"
           (click)="onDeleteItem()"
   >Delete Item
-  </button>
+  </bmw-button>
 </div>
 <br>
 <br>

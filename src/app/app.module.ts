@@ -10,7 +10,9 @@ import { OrderComponent } from './orders/order/order.component';
 import { OrderDetailsComponent } from './orders/order/order-details/order-details.component';
 import { ProductItemAddOrderComponent } from './products/product-item-add-order/product-item-add-order.component';
 import { ProductItemOrderDetailsComponent } from './products/product-item-order-details/product-item-order-details.component'
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
+import { BmwThemeModule } from '@bmw-ds/components';
+import { ButtonModule } from '@bmw-ds/components';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {FormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BmwThemeModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

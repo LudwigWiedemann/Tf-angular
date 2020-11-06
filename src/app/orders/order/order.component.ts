@@ -2,10 +2,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Order} from "../../shared/order.model";
 
-
-
-
-
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -21,11 +17,11 @@ export class OrderComponent implements OnInit {
   showDetails = false;
   @Input() addItems = false;
 
-
   constructor() {
   }
 
   ngOnInit(): void {
+
   }
 
   showOrderDetails() {
@@ -47,4 +43,3 @@ export class OrderComponent implements OnInit {
     this.dontShowProducts.emit(false);
   }
 }
-

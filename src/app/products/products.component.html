@@ -1,16 +1,18 @@
 <div
   align="center"
   valign="top">
-  <button class="button"
+  <bmw-button class="button"
           *ngIf="!editProducts"
           (click)="onEdit()">Edit Items
-  </button>
-  <button class="button"
+  </bmw-button>
+  <bmw-button class="button"
           *ngIf="editProducts"
           (click)="onReturn()">Return
-  </button>
+  </bmw-button>
+  <br>
+  <br>
   <div class="col-xs-12" *ngIf="editProducts">
-    <label for="name">Name</label>
+    <label for="name">Name: </label>
     <input type="text"
            id="name"
            class="form-control"
@@ -18,16 +20,17 @@
     >
     <br>
     <br>
-    <label for="name">description</label>
+    <label for="name">Description: </label>
     <input type="text"
            id="description"
            class="form-control"
            #descriptionInput
     >
     <br>
-    <button class="button"
+    <br>
+    <bmw-button button="submit"
             (click)="onAddItem()">Add Item
-    </button>
+    </bmw-button>
   </div>
   <br>
   <br>

@@ -23,8 +23,6 @@ export class OrdersComponent implements OnInit {
   addItems = false;
   addOrder = false;
   nameOfNewOrder = '';
-  button = false;
-
 
   constructor(private ordersService: OrdersService,private productsService: ProductsService) { }
 

@@ -6,14 +6,14 @@
                          [order]="order"
                          *ngIf="showDetails"
  [editOrder]="editOrder"></app-order-details>
-<button class="button" [disabled]="addItems" *ngIf="editOrder" style="margin: 20px"
+<bmw-button button="secondary" [disabled]="addItems" *ngIf="editOrder" style="margin: 20px"
         (click)="deleteOrder()">Delete Order
-</button>
-<button class="button" *ngIf="editOrder && !addItems" style="margin: 20px"
+</bmw-button>
+<bmw-button button="primary" *ngIf="editOrder && !addItems" style="margin: 20px"
         (click)="onAddProducts(order)">Add Items
-</button>
-<button class="button" *ngIf="addItems && editOrder" style="margin: 20px; min-width: 78px"
+</bmw-button>
+<bmw-button class="button" *ngIf="addItems && editOrder" style="margin: 20px; min-width: 78px"
         (click)="accept()">Accept
-</button>
+</bmw-button>
 <hr>
 

@@ -1,13 +1,13 @@
 <div align="center">
-  <button class="button" *ngIf="!editOrder" style="margin: 20px"
-    (click)="onEditOrder()">Edit Orders
-  </button>
-  <button class="button" [disabled]="showProducts" *ngIf="editOrder" style="margin: 20px"
-          (click)="onReturn()">Return
-  </button>
-  <button class="button" [disabled]="showProducts" *ngIf="editOrder" style="margin: 20px"
-  (click)="onAddOrder()">Add Order
-  </button>
+  <bmw-button class="button" *ngIf="!editOrder" style="margin: 20px"
+              (click)="onEditOrder()">Edit Orders
+  </bmw-button>
+  <bmw-button class="button" [disabled]="showProducts" *ngIf="editOrder" style="margin: 20px"
+              (click)="onReturn()">Return
+  </bmw-button>
+  <bmw-button button="primary" [disabled]="showProducts" *ngIf="editOrder" style="margin: 20px"
+              (click)="onAddOrder()">Add Order
+  </bmw-button>
 
 
   <app-order
@@ -17,9 +17,10 @@
     (onDeleteOrder)="deleteAnOrder($event)"
     (onShowProducts)="showAllProducts($event)"
     (dontShowProducts)="this.showProducts = $event"
-    [addItems]="this.addItems"  >
+    [addItems]="this.addItems">
   </app-order>
 </div>
+
 
 <ng-container *ngIf="addOrder">
   <label for="name">Name: </label>
@@ -30,15 +31,17 @@
     #nameInput
     [(ngModel)]="nameOfNewOrder"
   >
-  <button class="button" [disabled]="nameOfNewOrder === ''" *ngIf="editOrder" style="margin: 20px"
-          (click)="onAcceptName()">Accept
-  </button>
+  <bmw-button class="button" [disabled]="nameOfNewOrder === ''" *ngIf="editOrder" style="margin: 20px"
+              (click)="onAcceptName()">Accept
+  </bmw-button>
 </ng-container>
 <ng-container *ngIf="showProducts">
-    <div fxLayout="row" fxLayoutAlign="space-evenly stretch" >
-    <app-product-item-add-order *ngFor="let item of products"  [orderToEdit]="orderToEdit" [productItem]="item "> </app-product-item-add-order>
-    </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly stretch">
+    <app-product-item-add-order *ngFor="let item of products" [orderToEdit]="orderToEdit"
+                                [productItem]="item "></app-product-item-add-order>
+  </div>
 </ng-container>
+
 
 
 
